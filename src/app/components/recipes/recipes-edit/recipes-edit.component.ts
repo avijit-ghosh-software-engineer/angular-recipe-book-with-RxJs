@@ -2,8 +2,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { Recipe } from 'src/app/models/recipe.model';
-import { RecipesService } from 'src/app/services/recipes.service';
+import { Recipe } from '../../../models/recipe.model';
+import { RecipesService } from '../../../services/recipes.service';
 
 @Component({
   selector: 'app-recipes-edit',
@@ -95,4 +95,4 @@ export class RecipesEditComponent implements OnInit,OnDestroy {
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
-} 
+}

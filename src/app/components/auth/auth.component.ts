@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { AuthReturnData, AuthService } from 'src/app/services/auth.service';
+import { AuthReturnData, AuthService } from './../../services/auth.service';
 
 @Component({
   selector: 'app-auth',
@@ -25,7 +25,7 @@ export class AuthComponent implements OnInit {
   onSubmit(form:NgForm){
     this.errorMsg = null;
     if(!form.valid){
-      return;  
+      return;
     }
     const email = form.value.email;
     const password = form.value.password;
@@ -36,7 +36,7 @@ export class AuthComponent implements OnInit {
     }
     else{
       authObs = this.authService.signUp(email,password);
-    }    
+    }
     form.reset();
 
     authObs.subscribe(response=>{
@@ -49,6 +49,6 @@ export class AuthComponent implements OnInit {
   }
 
   onHandleError(){
-    this.errorMsg = null; 
+    this.errorMsg = null;
   }
 }

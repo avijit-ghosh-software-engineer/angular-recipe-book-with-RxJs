@@ -1,8 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { Recipe } from 'src/app/models/recipe.model';
-import { RecipesService } from 'src/app/services/recipes.service';
+import { Recipe } from '../../../models/recipe.model';
+import { RecipesService } from './../../../services/recipes.service';
+
 
 @Component({
   selector: 'app-recipes-detail',
@@ -14,7 +15,7 @@ export class RecipesDetailComponent implements OnInit,OnDestroy {
   id:number;
   recipeSubscription:Subscription;
   constructor(private recipeService:RecipesService,private route:ActivatedRoute,private router:Router) { }
-  
+
 
   ngOnInit(): void {
     this.recipeSubscription = this.route.params.subscribe((params:Params)=>{

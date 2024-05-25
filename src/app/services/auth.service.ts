@@ -36,7 +36,7 @@ export class AuthService{
         ).pipe(catchError(this.handleError),tap(response=>{
             this.handleAuthentication(response.email,response.idToken,response.refreshToken,+response.expiresIn);
         }));
-    } 
+    }
 
     signIn(email:string,password:string){
         return this.http.post<AuthReturnData>(
@@ -49,16 +49,16 @@ export class AuthService{
         ).pipe(catchError(this.handleError),tap(response=>{
             this.handleAuthentication(response.email,response.idToken,response.refreshToken,+response.expiresIn);
         }));
-    } 
+    }
 
     logout(){
         this.user.next(null);
-        this.router.navigate(['/auth']);  
+        this.router.navigate(['/auth']);
         localStorage.removeItem('userData');
         if(this.tokenExpirationTimer){
             clearTimeout(this.tokenExpirationTimer);
         }
-        this.tokenExpirationTimer = null; 
+        this.tokenExpirationTimer = null;
     }
 
     autoLogout(expirationDuration:number){
